@@ -1,9 +1,20 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, useEffect, useMemo } from 'react';
 import './App.css';
 
 function App() {
-  const [input, setInput] = useState(''); 
+  const [input, setInput] = useState('');
   const [count, setCount] = useState(0);
+  const [maxCount, setMaxCount] = useState(0);
+  const [minCount, setMinCount] = useState(0);
+  const [totalCount, setTotalCount] = useState(0);
+  const [numChanges, setNumChanges] = useState(0);
+
+  useEffect(() => {
+    if (count > maxCount) setMaxCount(count);
+    if (count < minCount) setMinCount(count);
+    setTotalCount(totalCount + count);
+    setNumChanges(numChanges + 1);
+  }, [count]);
 
   const incrementCount = useCallback(() => {
     if (count < 10) {
@@ -20,6 +31,10 @@ function App() {
   const resetCount = useCallback(() => {
     setCount(0);
   }, []);
+
+  const averageCount = useMemo(() => {
+    return numChanges > 0 ? (totalCount / numChanges).toFixed(2) : 0;
+  }, [totalCount, numChanges]);
 
   const isEven = count % 2 === 0;
 
@@ -39,6 +54,7 @@ function App() {
       <h3>The count is {isEven ? 'even' : 'odd'}.</h3>
       <hr />
       <ChildComponent count={count} onIncrement={incrementCount} onDecrement={decrementCount} onReset={resetCount} />
+      <StatisticsComponent input={input} maxCount={maxCount} minCount={minCount} averageCount={averageCount} />
     </div>
   );
 }
@@ -57,5 +73,25 @@ const ChildComponent = React.memo(function({ count, onIncrement, onDecrement, on
     </div>
   );
 });
+
+function StatisticsComponent({ input, maxCount, minCount, averageCount }) {
+  useEffect(() => {
+    console.log('Statistics Updated:');
+    console.log('Max Count:', maxCount);
+    console.log('Min Count:', minCount);
+    console.log('Average Count:', averageCount);
+    console.log('Input Length:', input.length);
+  }, [input, maxCount, minCount, averageCount]);
+
+  return (
+    <div className="StatisticsComponent">
+      <h3>Statistics Component</h3>
+      <p>Max Count: {maxCount}</p>
+      <p>Min Count: {minCount}</p>
+      <p>Average Count: {averageCount}</p>
+      <p>Input Length: {input.length}</p>
+    </div>
+  );
+}
 
 export default App;
