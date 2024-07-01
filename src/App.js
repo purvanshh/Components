@@ -55,6 +55,8 @@ function App() {
       <hr />
       <ChildComponent count={count} onIncrement={incrementCount} onDecrement={decrementCount} onReset={resetCount} />
       <StatisticsComponent input={input} maxCount={maxCount} minCount={minCount} averageCount={averageCount} />
+      <hr />
+      <TodoList />
     </div>
   );
 }
@@ -90,6 +92,43 @@ function StatisticsComponent({ input, maxCount, minCount, averageCount }) {
       <p>Min Count: {minCount}</p>
       <p>Average Count: {averageCount}</p>
       <p>Input Length: {input.length}</p>
+    </div>
+  );
+}
+
+function TodoList() {
+  const [todos, setTodos] = useState([]);
+  const [newTodo, setNewTodo] = useState('');
+
+  const addTodo = () => {
+    if (newTodo.trim() !== '') {
+      setTodos([...todos, newTodo]);
+      setNewTodo('');
+    }
+  };
+
+  const removeTodo = (index) => {
+    setTodos(todos.filter((_, i) => i !== index));
+  };
+
+  return (
+    <div className="TodoList">
+      <h3>Todo List</h3>
+      <input 
+        type="text" 
+        value={newTodo} 
+        onChange={(e) => setNewTodo(e.target.value)} 
+        placeholder="Add a new task"
+      />
+      <button onClick={addTodo}>Add</button>
+      <ul>
+        {todos.map((todo, index) => (
+          <li key={index}>
+            {todo}
+            <button onClick={() => removeTodo(index)}>Remove</button>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
