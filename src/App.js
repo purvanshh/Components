@@ -1,5 +1,6 @@
 import React, { useCallback, useState, useEffect, useMemo } from 'react';
 import './App.css';
+import TimerComponent from './TimerComponent';
 
 function App() {
   const [input, setInput] = useState('');
@@ -57,6 +58,8 @@ function App() {
       <StatisticsComponent input={input} maxCount={maxCount} minCount={minCount} averageCount={averageCount} />
       <hr />
       <TodoList />
+      <hr />
+      <TimerComponent />
     </div>
   );
 }
