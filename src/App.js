@@ -1,6 +1,9 @@
 import React, { useCallback, useState, useEffect, useMemo } from 'react';
 import './App.css';
 import TimerComponent from './TimerComponent';
+import WeatherComponent from './WeatherComponent';
+import NotesComponent from './NotesComponent';
+import QuotesComponent from './QuotesComponent';
 
 function App() {
   const [input, setInput] = useState('');
@@ -60,6 +63,12 @@ function App() {
       <TodoList />
       <hr />
       <TimerComponent />
+      <hr />
+      <WeatherComponent />
+      <hr />
+      <NotesComponent />
+      <hr />
+      <QuotesComponent />
     </div>
   );
 }
