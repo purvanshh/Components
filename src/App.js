@@ -1,4 +1,5 @@
-import React, { useCallback, useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import './App.css';
 import TimerComponent from './TimerComponent';
 import WeatherComponent from './WeatherComponent';
@@ -6,69 +7,45 @@ import NotesComponent from './NotesComponent';
 import QuotesComponent from './QuotesComponent';
 
 function App() {
-  const [input, setInput] = useState('');
-  const [count, setCount] = useState(0);
-  const [maxCount, setMaxCount] = useState(0);
-  const [minCount, setMinCount] = useState(0);
-  const [totalCount, setTotalCount] = useState(0);
-  const [numChanges, setNumChanges] = useState(0);
-
-  useEffect(() => {
-    if (count > maxCount) setMaxCount(count);
-    if (count < minCount) setMinCount(count);
-    setTotalCount(totalCount + count);
-    setNumChanges(numChanges + 1);
-  }, [count]);
-
-  const incrementCount = useCallback(() => {
-    if (count < 10) {
-      setCount(count + 1);
-    }
-  }, [count]);
-
-  const decrementCount = useCallback(() => {
-    if (count > 0) {
-      setCount(count - 1);
-    }
-  }, [count]);
-
-  const resetCount = useCallback(() => {
-    setCount(0);
-  }, []);
-
-  const averageCount = useMemo(() => {
-    return numChanges > 0 ? (totalCount / numChanges).toFixed(2) : 0;
-  }, [totalCount, numChanges]);
-
-  const isEven = count % 2 === 0;
-
   return (
-    <div className="App">
-      <input 
-        type='text' 
-        value={input} 
-        onChange={(e) => setInput(e.target.value)} 
-      />
-      <p>Character count: {input.length}</p>
-      <button onClick={incrementCount}>Increment Counter</button>
-      <button onClick={decrementCount}>Decrement Counter</button>
-      <button onClick={resetCount}>Reset Counter</button>
-      <h3>Input text: {input}</h3>
-      <h3>Count: {count}</h3>
-      <h3>The count is {isEven ? 'even' : 'odd'}.</h3>
-      <hr />
-      <ChildComponent count={count} onIncrement={incrementCount} onDecrement={decrementCount} onReset={resetCount} />
-      <StatisticsComponent input={input} maxCount={maxCount} minCount={minCount} averageCount={averageCount} />
-      <hr />
-      <TodoList />
-      <hr />
-      <TimerComponent />
-      <hr />
-      <WeatherComponent />
-      <hr />
-      <NotesComponent />
-      <hr />
-      <QuotesComponent />
+    <Router>
+      <div className="App">
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/timer">Timer</Link>
+            </li>
+            <li>
+              <Link to="/weather">Weather</Link>
+            </li>
+            <li>
+              <Link to="/notes">Notes</Link>
+            </li>
+            <li>
+              <Link to="/quotes">Quotes</Link>
+            </li>
+          </ul>
+        </nav>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/timer" element={<TimerComponent />} />
+          <Route path="/weather" element={<WeatherComponent />} />
+          <Route path="/notes" element={<NotesComponent />} />
+          <Route path="/quotes" element={<QuotesComponent />} />
+        </Routes>
+      </div>
+    </Router>
+  );
+}
+
+function Home() {
+  return (
+    <div>
+      <h2>Home</h2>
+      <p>Welcome to the home page. Click on the links above to navigate.</p>
     </div>
   );
 }
