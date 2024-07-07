@@ -2,7 +2,7 @@
 .App {
   text-align: center;
   font-family: 'Arial', sans-serif;
-  background-color: #121212;
+  background: linear-gradient(135deg, #1f1f1f, #2d2d2d);
   color: #e0e0e0;
   min-height: 100vh;
   display: flex;
@@ -10,6 +10,16 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
+}
+
+/* Glass Effect */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* Navigation */
@@ -66,7 +76,7 @@ button {
 }
 
 button:hover {
-  background-color: #007BFF;
+  background-color: #0056b3;
   box-shadow: 0 0 10px #9f5f80, 0 0 20px #9f5f80, 0 0 30px #9f5f80;
   transform: translateY(-2px) rotateX(10deg) rotateY(-10deg);
 }
@@ -117,11 +127,12 @@ input[type="text"]:focus {
 
 /* Statistics Component */
 .StatisticsComponent {
-  background-color: #1e1e1e;
-  border: 1px solid #333;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 5px;
   padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   margin-top: 20px;
   width: 80%;
   max-width: 400px;
@@ -135,11 +146,12 @@ input[type="text"]:focus {
 
 /* TodoList Component */
 .TodoList {
-  background-color: #1e1e1e;
-  border: 1px solid #333;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 5px;
   padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   margin-top: 20px;
   width: 80%;
   max-width: 400px;
@@ -164,8 +176,9 @@ input[type="text"]:focus {
 }
 
 .TodoList li {
-  background-color: #1e1e1e;
-  border: 1px solid #333;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 5px;
   padding: 10px;
   margin: 5px 0;
@@ -187,11 +200,12 @@ input[type="text"]:focus {
 
 /* Timer Component */
 .TimerComponent {
-  background-color: #1e1e1e;
-  border: 1px solid #333;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 5px;
   padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   margin-top: 20px;
   width: 80%;
   max-width: 400px;
@@ -219,7 +233,7 @@ input[type="text"]:focus {
 }
 
 .TimerComponent button:hover {
-  background-color: #007BFF;
+  background-color: #0056b3;
   box-shadow: 0 0 10px #9f5f80, 0 0 20px #9f5f80, 0 0 30px #9f5f80;
   transform: translateY(-2px) rotateX(10deg) rotateY(-10deg);
 }
@@ -249,11 +263,12 @@ input[type="text"]:focus {
 
 /* Weather Component */
 .WeatherComponent {
-  background-color: #1e1e1e;
-  border: 1px solid #333;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 5px;
   padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   margin-top: 20px;
   width: 80%;
   max-width: 400px;
@@ -261,11 +276,12 @@ input[type="text"]:focus {
 
 /* Notes Component */
 .NotesComponent {
-  background-color: #1e1e1e;
-  border: 1px solid #333;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 5px;
   padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   margin-top: 20px;
   width: 80%;
   max-width: 400px;
@@ -288,7 +304,7 @@ input[type="text"]:focus {
 }
 
 .NotesComponent button:hover {
-  background-color: #007BFF;
+  background-color: #0056b3;
   box-shadow: 0 0 10px #9f5f80, 0 0 20px #9f5f80, 0 0 30px #9f5f80;
   transform: translateY(-2px) rotateX(10deg) rotateY(-10deg);
 }
@@ -318,11 +334,12 @@ input[type="text"]:focus {
 
 /* Quotes Component */
 .QuotesComponent {
-  background-color: #1e1e1e;
-  border: 1px solid #333;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 5px;
   padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   margin-top: 20px;
   width: 80%;
   max-width: 400px;
@@ -345,7 +362,7 @@ input[type="text"]:focus {
 }
 
 .QuotesComponent button:hover {
-  background-color: #007BFF;
+  background-color: #0056b3;
   box-shadow: 0 0 10px #9f5f80, 0 0 20px #9f5f80, 0 0 30px #9f5f80;
   transform: translateY(-2px) rotateX(10deg) rotateY(-10deg);
 }
