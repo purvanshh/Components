@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import './App.css';
 import TimerComponent from './TimerComponent';
 import WeatherComponent from './WeatherComponent';
 import NotesComponent from './NotesComponent';
 import QuotesComponent from './QuotesComponent';
-import CalculatorComponent from './CalculatorComponent'; 
+import CalculatorComponent from './CalculatorComponent';
+import RandomImageComponent from './RandomImageComponent'; // Import your RandomImageComponent here
 
 function App() {
   return (
@@ -31,6 +32,9 @@ function App() {
             <li>
               <Link to="/calculator">Calculator</Link>
             </li>
+            <li>
+              <Link to="/random-image">Random Image</Link>
+            </li>
           </ul>
         </nav>
         <Routes>
@@ -40,6 +44,7 @@ function App() {
           <Route path="/notes" element={<NotesComponent />} />
           <Route path="/quotes" element={<QuotesComponent />} />
           <Route path="/calculator" element={<CalculatorComponent />} />
+          <Route path="/random-image" element={<RandomImageComponent />} /> {/* Route for RandomImageComponent */}
         </Routes>
       </div>
     </Router>
